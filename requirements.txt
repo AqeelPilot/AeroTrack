@@ -1,0 +1,8 @@
+sphinx
+numpy
+pandas
+matplotlib
+scipy
+tqdm
+requests
+geopy

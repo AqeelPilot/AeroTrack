@@ -1,0 +1,4 @@
+python -m PyInstaller --onefile ^
+  --icon=app_icon.ico ^
+  --add-data "C:\Users\aqeel\AppData\Roaming\Python\Python313\site-packages\openap\data;openap\data" ^
+  Flight_Program_MAIN.py
