@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuelBurnEstimator &mdash; AeroTrack 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AeroTrack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mods.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_MAIN.html">AeroTrack_MAIN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_Modules.html">AeroTrack_Modules module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">AeroTrack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AeroTrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FuelBurnEstimator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/FuelBurnEstimator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fuelburnestimator">
+<h1>FuelBurnEstimator<a class="headerlink" href="#fuelburnestimator" title="Link to this heading"></a></h1>
+<p>The <cite>FuelBurnEstimator</cite> class in AeroTrack estimates fuel consumption based on aircraft engine performance characteristics, thrust, and flight dynamics. It retrieves engine-specific data from the OpenAP library and applies a physics-informed estimation model to compute fuel burn rates.</p>
+<p>This module plays a key role in post-flight performance analysis and fuel efficiency studies.</p>
+<section id="class-overview">
+<h2>Class Overview<a class="headerlink" href="#class-overview" title="Link to this heading"></a></h2>
+</section>
+<section id="constructor">
+<h2>Constructor<a class="headerlink" href="#constructor" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FuelBurnEstimator</span><span class="p">(</span><span class="n">typecode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><cite>typecode</cite> (str): ICAO aircraft type designator (e.g., <cite>‘A320’</cite>, <cite>‘B744’</cite>).</p></li>
+</ul>
+<p>This initializes the estimator by retrieving the default engine model and associated performance parameters (e.g., fuel flow coefficients) from OpenAP.</p>
+</section>
+<section id="key-methods">
+<h2>Key Methods<a class="headerlink" href="#key-methods" title="Link to this heading"></a></h2>
+<p><strong>Method Descriptions:</strong></p>
+<ul class="simple">
+<li><p><strong>`estimate_fuel_burn(df)`</strong>
+Estimates fuel consumption (in kg/s) using modeled thrust and specific fuel consumption (SFC) for each timestamp in the DataFrame. Adds a <cite>fuel_burn_kg_s</cite> column.</p></li>
+</ul>
+</section>
+<section id="usage-example">
+<h2>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AeroTrack_Modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuelBurnEstimator</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">FuelBurnEstimator</span><span class="p">(</span><span class="s2">&quot;A320&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">estimate_fuel_burn</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;flight_with_fuel.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<p>The output DataFrame will include:</p>
+<ul class="simple">
+<li><p><cite>fuel_burn_kg_s</cite>: Estimated fuel flow rate in kilograms per second at each time step.</p></li>
+</ul>
+</section>
+<section id="estimation-logic">
+<h2>Estimation Logic<a class="headerlink" href="#estimation-logic" title="Link to this heading"></a></h2>
+<p>Fuel burn is computed using:</p>
+<div class="math notranslate nohighlight">
+\[\text{Fuel Burn (kg/s)} = \text{SFC} \times \text{Thrust (N)}\]</div>
+<p>Where:
+- SFC is derived from OpenAP engine models.
+- Thrust is typically estimated based on vertical speed, drag, and climb/descent phase.</p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>openap</cite></p></li>
+<li><p><cite>numpy</cite></p></li>
+<li><p><cite>pandas</cite></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Muhammad Aqeel Abdulla.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

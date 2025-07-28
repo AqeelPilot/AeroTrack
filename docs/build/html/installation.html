@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; AeroTrack 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AeroTrack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-dependencies">Python Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-aerotrack">Running AeroTrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-configuration-file">Project Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#folder-structure">Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-step">Next Step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mods.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AeroTrack_MAIN.html">AeroTrack_MAIN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AeroTrack_Modules.html">AeroTrack_Modules module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">AeroTrack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AeroTrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p>This page describes how to install and set up <strong>AeroTrack</strong>, a post-flight analysis toolkit for processing aircraft trajectory data.</p>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python 3.10 or later</p></li>
+<li><p>Operating System: Windows, macOS, or Linux</p></li>
+<li><p>Internet access (required for first-time OpenAP use)</p></li>
+<li><p>Optional: <cite>tkinter</cite> for GUI file dialog (usually pre-installed)</p></li>
+</ul>
+</section>
+<section id="python-dependencies">
+<h2>Python Dependencies<a class="headerlink" href="#python-dependencies" title="Link to this heading"></a></h2>
+<p>AeroTrack depends on the following Python packages:</p>
+<ul class="simple">
+<li><p><cite>openap</cite></p></li>
+<li><p><cite>pandas</cite></p></li>
+<li><p><cite>numpy</cite></p></li>
+<li><p><cite>matplotlib</cite></p></li>
+<li><p><cite>scipy</cite></p></li>
+<li><p><cite>tkinter</cite> (for GUI input)</p></li>
+<li><p><cite>datetime</cite>, <cite>os</cite>, <cite>json</cite>, <cite>logging</cite>, <cite>time</cite> (standard library)</p></li>
+</ul>
+<p>It is recommended to install all dependencies via a <cite>requirements.txt</cite> file.</p>
+</section>
+<section id="installation-steps">
+<h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Clone the Repository</strong></p></li>
+</ol>
+<p>If AeroTrack is hosted in a Git repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YourUsername/AeroTrack.git
+<span class="nb">cd</span><span class="w"> </span>AeroTrack
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Create a Virtual Environment</strong></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">   </span><span class="c1"># On Windows: venv\Scripts\activate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Install Dependencies</strong></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>If you do not have a <cite>requirements.txt</cite>, you can install dependencies manually:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>openap<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>scipy
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Install Tkinter (If Missing)</strong></p></li>
+</ol>
+<p>Tkinter is required for the GUI file selection prompt:</p>
+<ul class="simple">
+<li><p><strong>Windows/macOS</strong>: usually included with Python.</p></li>
+<li><p><strong>Linux (Debian/Ubuntu)</strong>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-tk
+</pre></div>
+</div>
+</section>
+<section id="running-aerotrack">
+<h2>Running AeroTrack<a class="headerlink" href="#running-aerotrack" title="Link to this heading"></a></h2>
+<p>Once installed, run the main entry point:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>AeroTrack_MAIN.py
+</pre></div>
+</div>
+<p>You will be prompted to select a <cite>project_config.json</cite> file using a file dialog.</p>
+</section>
+<section id="project-configuration-file">
+<h2>Project Configuration File<a class="headerlink" href="#project-configuration-file" title="Link to this heading"></a></h2>
+<p>The configuration file must contain the following keys:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;input_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path/to/csv_inputs&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;output_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path/to/save_outputs&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;master_flight_list_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path/to/masterlist&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;project_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyProject&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="folder-structure">
+<h2>Folder Structure<a class="headerlink" href="#folder-structure" title="Link to this heading"></a></h2>
+<p>The AeroTrack runtime expects the following folder structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>project_root/
+├── input_folder/                  # Contains raw flight .csv files
+├── output_folder/                 # Destination for processed files
+├── master_flight_list_folder/     # Contains master .csv with aircraft details
+├── project_config.json            # Configuration file (selected at runtime)
+├── AeroTrack_MAIN.py
+├── AeroTrack_Modules.py
+</pre></div>
+</div>
+<p>After selecting the config file, AeroTrack will automatically:</p>
+<ul class="simple">
+<li><p>Process all <cite>.csv</cite> flight logs in the input folder</p></li>
+<li><p>Annotate files with drag, fuel, and flight phase data</p></li>
+<li><p>Save enhanced <cite>.csv</cite> files to the output folder</p></li>
+<li><p>Optionally generate visualizations (if enabled)</p></li>
+</ul>
+</section>
+<section id="next-step">
+<h2>Next Step<a class="headerlink" href="#next-step" title="Link to this heading"></a></h2>
+<p>Once installation is complete, proceed to the <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> section to learn how to run AeroTrack and interpret outputs.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Muhammad Aqeel Abdulla.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

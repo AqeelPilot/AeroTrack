@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlightPhaseEstimator &mdash; AeroTrack 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AeroTrack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mods.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_MAIN.html">AeroTrack_MAIN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_Modules.html">AeroTrack_Modules module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">AeroTrack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AeroTrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FlightPhaseEstimator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/FlightPhaseEstimator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flightphaseestimator">
+<h1>FlightPhaseEstimator<a class="headerlink" href="#flightphaseestimator" title="Link to this heading"></a></h1>
+<p>The <cite>FlightPhaseEstimator</cite> class identifies distinct flight phases—such as climb, cruise, and descent—based on altitude and vertical speed profiles. It is a core component in AeroTrack for categorizing aircraft behavior post-flight and isolating segments for targeted analysis (e.g., cruise-only fuel burn).</p>
+<section id="class-overview">
+<h2>Class Overview<a class="headerlink" href="#class-overview" title="Link to this heading"></a></h2>
+</section>
+<section id="constructor">
+<h2>Constructor<a class="headerlink" href="#constructor" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FlightPhaseEstimator</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Initializes the estimator without requiring additional parameters. Logic is internally configured to assign flight phases based on vertical speed and smoothed barometric altitude.</p>
+</section>
+<section id="key-methods">
+<h2>Key Methods<a class="headerlink" href="#key-methods" title="Link to this heading"></a></h2>
+<p><strong>Method Descriptions:</strong></p>
+<ul class="simple">
+<li><p><strong>`estimate_phases(df)`</strong>
+Adds a <cite>phase</cite> column to the DataFrame, labeling each time point as <cite>“Climb”</cite>, <cite>“Cruise”</cite>, <cite>“Descent”</cite>, or <cite>“Other”</cite> based on vertical speed thresholds.</p></li>
+<li><p><strong>`identify_cruise_segments(df)`</strong>
+Returns a filtered DataFrame containing only the cruise segments, useful for subsequent cruise-only analysis (e.g., CO-temperature correlation, drag comparisons).</p></li>
+</ul>
+</section>
+<section id="flight-phase-logic">
+<h2>Flight Phase Logic<a class="headerlink" href="#flight-phase-logic" title="Link to this heading"></a></h2>
+<p>The classification is based on:</p>
+<ul class="simple">
+<li><p><strong>Climb</strong>: vertical speed &gt; +500 ft/min</p></li>
+<li><p><strong>Descent</strong>: vertical speed &lt; -500 ft/min</p></li>
+<li><p><strong>Cruise</strong>: vertical speed between ±500 ft/min AND stable altitude</p></li>
+<li><p><strong>Other</strong>: Ground or transitional phases</p></li>
+</ul>
+</section>
+<section id="usage-example">
+<h2>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AeroTrack_Modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">FlightPhaseEstimator</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">FlightPhaseEstimator</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">estimate_phases</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">cruise_df</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">identify_cruise_segments</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<p>The modified DataFrame includes:</p>
+<ul class="simple">
+<li><p><cite>phase</cite>: Flight phase classification</p></li>
+<li><p>Optionally, only cruise segments when using <cite>identify_cruise_segments</cite></p></li>
+</ul>
+</section>
+<section id="visualization-tip">
+<h2>Visualization Tip<a class="headerlink" href="#visualization-tip" title="Link to this heading"></a></h2>
+<p>Plotting <cite>baro_alt_AC</cite> against time colored by phase helps visually validate the classification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">phases</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Climb&quot;</span><span class="p">:</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Cruise&quot;</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;Descent&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">phases</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">phase</span><span class="p">][</span><span class="s2">&quot;UTC_time&quot;</span><span class="p">],</span>
+             <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">phase</span><span class="p">][</span><span class="s2">&quot;baro_alt_AC&quot;</span><span class="p">],</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">phase</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Altitude (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Flight Phases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>numpy</cite></p></li>
+<li><p><cite>pandas</cite></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Muhammad Aqeel Abdulla.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlightProcessor &mdash; AeroTrack 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AeroTrack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mods.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_MAIN.html">AeroTrack_MAIN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AeroTrack_Modules.html">AeroTrack_Modules module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">AeroTrack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AeroTrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FlightProcessor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/FlightProcessor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flightprocessor">
+<h1>FlightProcessor<a class="headerlink" href="#flightprocessor" title="Link to this heading"></a></h1>
+<p>The <cite>FlightProcessor</cite> class is the core engine of AeroTrack. It manages the end-to-end post-processing of aircraft flight trajectory CSV files, integrating configuration files, master flight lookup data, and OpenAP performance models.</p>
+<dl class="simple">
+<dt>This class is responsible for:</dt><dd><ul class="simple">
+<li><p>Loading individual flight data files</p></li>
+<li><p>Estimating key physical parameters (drag, fuel burn, altitude profile)</p></li>
+<li><p>Identifying flight phases (climb, cruise, descent)</p></li>
+<li><p>Outputting processed data to structured CSVs for further analysis</p></li>
+</ul>
+</dd>
+</dl>
+<section id="class-overview">
+<h2>Class Overview<a class="headerlink" href="#class-overview" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AeroTrack_Modules.</span></span><span class="sig-name descname"><span class="pre">FlightProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_openap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.compute_flight_path_angle">
+<span class="sig-name descname"><span class="pre">compute_flight_path_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.compute_flight_path_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.compute_flight_path_angle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.compute_vertical_rate">
+<span class="sig-name descname"><span class="pre">compute_vertical_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.compute_vertical_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.compute_vertical_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.detect_basic_phases">
+<span class="sig-name descname"><span class="pre">detect_basic_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.detect_basic_phases"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.detect_basic_phases" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.detect_flight_phase">
+<span class="sig-name descname"><span class="pre">detect_flight_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.detect_flight_phase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.detect_flight_phase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.process_all_files">
+<span class="sig-name descname"><span class="pre">process_all_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lookup</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aircraft_lookup</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.process_all_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.process_all_files" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AeroTrack_Modules.FlightProcessor.process_file">
+<span class="sig-name descname"><span class="pre">process_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aircraft_lookup</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_csv_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/AeroTrack_Modules.html#FlightProcessor.process_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AeroTrack_Modules.FlightProcessor.process_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constructor">
+<h2>Constructor<a class="headerlink" href="#constructor" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FlightProcessor</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">project_name</span><span class="p">,</span> <span class="n">config_path</span><span class="p">,</span> <span class="n">use_openap</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><cite>input_path</cite> (str): Folder containing raw flight CSV files.</p></li>
+<li><p><cite>output_path</cite> (str): Folder where processed files will be saved.</p></li>
+<li><p><cite>project_name</cite> (str): Name identifier for the current run.</p></li>
+<li><p><cite>config_path</cite> (str): Path to the <cite>project_config.json</cite> file.</p></li>
+<li><p><cite>use_openap</cite> (int): Flag to toggle OpenAP-based dynamic modeling.</p></li>
+</ul>
+</section>
+<section id="key-methods">
+<h2>Key Methods<a class="headerlink" href="#key-methods" title="Link to this heading"></a></h2>
+</section>
+<section id="usage-example">
+<h2>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">AeroTrack_Modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">FlightProcessor</span>
+
+<span class="n">processor</span> <span class="o">=</span> <span class="n">FlightProcessor</span><span class="p">(</span>
+    <span class="n">input_path</span><span class="o">=</span><span class="s2">&quot;FlightData/&quot;</span><span class="p">,</span>
+    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;Processed/&quot;</span><span class="p">,</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s2">&quot;QatarFleet&quot;</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;project_config.json&quot;</span><span class="p">,</span>
+    <span class="n">use_openap</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">processor</span><span class="o">.</span><span class="n">process_file</span><span class="p">(</span><span class="s2">&quot;20230718_A6EVO_A350.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">flight_lookup</span><span class="p">,</span> <span class="n">aircraft_lookup</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<p>Processed CSVs contain the following enriched columns:</p>
+<ul class="simple">
+<li><p><cite>flight_path_angle</cite>, <cite>vertical_speed</cite></p></li>
+<li><p><cite>total_drag</cite>, <cite>weight_component</cite></p></li>
+<li><p><cite>fuel_burn</cite>, <cite>estimated_mass</cite></p></li>
+<li><p><cite>flight_phase</cite>, <cite>cruise_flag</cite></p></li>
+</ul>
+<p>These values provide a high-fidelity aerodynamic and operational profile for each flight, enabling further analytics and visualization within the AeroTrack or DustFlight ecosystem.</p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>pandas</cite></p></li>
+<li><p><cite>numpy</cite></p></li>
+<li><p><cite>math</cite></p></li>
+<li><p><cite>openap</cite></p></li>
+<li><p><cite>tqdm</cite> (for progress bar)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Muhammad Aqeel Abdulla.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

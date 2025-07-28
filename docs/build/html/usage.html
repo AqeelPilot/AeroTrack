@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; AeroTrack 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modules" href="mods.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AeroTrack
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-aerotrack">Running AeroTrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file-example">Configuration File Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-folder-structure">Expected Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-steps">Processing Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-prompts">Optional Prompts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-files">Output Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizations">Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-step">Next Step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mods.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AeroTrack_MAIN.html">AeroTrack_MAIN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AeroTrack_Modules.html">AeroTrack_Modules module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">AeroTrack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AeroTrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>This section explains how to run AeroTrack, interpret its inputs and outputs, and understand its processing workflow.</p>
+<section id="running-aerotrack">
+<h2>Running AeroTrack<a class="headerlink" href="#running-aerotrack" title="Link to this heading"></a></h2>
+<p>After installation, launch the main script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>AeroTrack_MAIN.py
+</pre></div>
+</div>
+<p>A file dialog will open prompting you to select a configuration file (<cite>project_config.json</cite>). This file defines key paths for input and output data.</p>
+</section>
+<section id="configuration-file-example">
+<h2>Configuration File Example<a class="headerlink" href="#configuration-file-example" title="Link to this heading"></a></h2>
+<p>The configuration file must be a JSON file with the following structure:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;input_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FlightCSVs/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;output_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Processed/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;master_flight_list_folder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MasterList/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;project_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SampleProject&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>input_folder</cite>: Path to a folder containing raw flight <cite>.csv</cite> files</p></li>
+<li><p><cite>output_folder</cite>: Where processed outputs will be saved</p></li>
+<li><p><cite>master_flight_list_folder</cite>: Folder containing the aircraft metadata file</p></li>
+<li><p><cite>project_name</cite>: Used as a prefix in output filenames</p></li>
+</ul>
+</section>
+<section id="expected-folder-structure">
+<h2>Expected Folder Structure<a class="headerlink" href="#expected-folder-structure" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AeroTrack/
+├── FlightCSVs/
+│   ├── 20230701_1210_A320_XXXXX.csv
+│   └── ...
+├── Processed/
+├── MasterList/
+│   └── Master_Flight_List.csv
+├── project_config.json
+├── AeroTrack_MAIN.py
+└── AeroTrack_Modules.py
+</pre></div>
+</div>
+</section>
+<section id="processing-steps">
+<h2>Processing Steps<a class="headerlink" href="#processing-steps" title="Link to this heading"></a></h2>
+<p>Once a valid configuration is selected, AeroTrack performs the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Loads each `.csv` file</strong> in the input folder</p></li>
+<li><p><strong>Extracts physical quantities</strong>: vertical speed, flight path angle, etc.</p></li>
+<li><p><strong>Identifies flight phases</strong> using OpenAP’s <cite>FlightPhase</cite> model</p></li>
+<li><p><strong>Estimates drag</strong> using OpenAP’s aerodynamic models (if aircraft type known)</p></li>
+<li><p><strong>Calculates fuel burn</strong> using either fixed lookup or OpenAP’s engine model</p></li>
+<li><p><strong>Saves processed outputs</strong> to the output folder:
+- Annotated flight file (e.g., <cite>20230701_1210_A320_XXXXX_phases.csv</cite>)
+- Optional plots (drag, fuel, phase time series)</p></li>
+<li><p><strong>Updates a master summary file</strong> with metrics across all flights</p></li>
+</ol>
+</section>
+<section id="optional-prompts">
+<h2>Optional Prompts<a class="headerlink" href="#optional-prompts" title="Link to this heading"></a></h2>
+<p>At runtime, AeroTrack will ask whether to:</p>
+<ul class="simple">
+<li><p><strong>Enable drag and weight estimation</strong> via OpenAP</p></li>
+<li><p><strong>Enable fuel burn estimation</strong></p></li>
+<li><p><strong>Enable plotting</strong> of key performance variables</p></li>
+</ul>
+<p>These allow users to control the level of computation performed.</p>
+</section>
+<section id="output-files">
+<h2>Output Files<a class="headerlink" href="#output-files" title="Link to this heading"></a></h2>
+<p>Each processed flight produces:</p>
+<ul class="simple">
+<li><p>A CSV file with new columns:
+- <cite>Vertical_Speed</cite>
+- <cite>Flight_Path_Angle</cite>
+- <cite>Flight_Phase</cite>
+- <cite>Total_Drag</cite> (if OpenAP is used)
+- <cite>Fuel_Burn</cite> (if enabled)</p></li>
+<li><p>A master <cite>.csv</cite> file (e.g., <cite>SampleProject_MasterFlightList.csv</cite>) containing a summary row per flight</p></li>
+</ul>
+</section>
+<section id="visualizations">
+<h2>Visualizations<a class="headerlink" href="#visualizations" title="Link to this heading"></a></h2>
+<p>If enabled, AeroTrack generates:
+- <strong>Time-series plots</strong>: drag vs time, fuel vs time
+- <strong>Flight phase transitions</strong>
+- <strong>Fuel burn vs altitude or temperature</strong></p>
+<p>These are saved to the output folder or displayed interactively.</p>
+</section>
+<section id="next-step">
+<h2>Next Step<a class="headerlink" href="#next-step" title="Link to this heading"></a></h2>
+<p>To learn how each module contributes to the AeroTrack pipeline, continue to the <a class="reference internal" href="modules.html"><span class="doc">AeroTrack</span></a> section or explore the <span class="xref std std-doc">api_reference/FlightProcessor</span> page.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mods.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Muhammad Aqeel Abdulla.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

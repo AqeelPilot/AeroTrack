@@ -17,4 +17,6 @@ AeroTrack documentation
    installation
    usage
    mods
+   AeroTrack_MAIN
+   AeroTrack_Modules
    modules
