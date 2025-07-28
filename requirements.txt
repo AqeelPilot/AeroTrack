@@ -1,9 +1,8 @@
 sphinx
 sphinx_rtd_theme
-sphinx-autodoc-typehints       # Adds type hints to function signatures in docs
-sphinx-copybutton              # Optional, adds copy buttons to code blocks
-myst-parser                    # If you use .md files (Markdown)
-
+sphinx-autodoc-typehints      
+sphinx-copybutton           
+myst-parser                  
 numpy
 pandas
 matplotlib
