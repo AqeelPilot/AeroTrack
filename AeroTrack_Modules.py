@@ -161,7 +161,7 @@ class FlightProcessor:
         }
 
         if aircraft_data:
-            typecode = str(aircraft_data.get("typecode", "")).upper()
+            typecode = str(aircraft_data.get("Typecode", "")).upper()
 
             try:
                 fuel_estimator = FuelEstimator(aircraft_data)
@@ -431,7 +431,7 @@ class FlightProcess:  ##Backup Class Incase of Failure
         # Try to compute drag only if MTOW is available
 
         if aircraft_data:
-            typecode = str(aircraft_data.get("typecode", "")).upper()
+            typecode = str(aircraft_data.get("Typecode", "")).upper()
 
             try:
                 fuel_estimator = FuelEstimator(aircraft_data)
@@ -522,7 +522,7 @@ class MasterFlightLookup:
         match = self.master_df[self.master_df["Flight_ID"] == flight_id]
 
         if not match.empty:
-            typecode = match.iloc[0]["typecode"]
+            typecode = match.iloc[0]["Typecode"]
             print(f"  Flight '{flight_id}' → Typecode: {typecode}")
         else:
             print(f"  Flight '{flight_id}' not found in master list.")
@@ -544,11 +544,11 @@ class AircraftPropertiesLookup:
             print(f"Skipping: '{filename_no_ext}' not found in master flight list.")
             return None
 
-        typecode = str(match.iloc[0]["typecode"]).strip().upper()
+        typecode = str(match.iloc[0]["Typecode"]).strip().upper()
 
         try:
             aircraft_data = prop.aircraft(typecode)
-            aircraft_data["typecode"] = typecode
+            aircraft_data["Typecode"] = typecode
             print(f"Aircraft: {filename_no_ext} → Typecode: '{typecode}'")
             return aircraft_data
         except Exception as e:
