@@ -1,0 +1,2 @@
+Flight ID,Engine,TOW (kg),TOW2_OpenAP (kg),Fuel Burnt (kg) ,Fuel Burnt OpenAP (kg),Total Dust (g),Total Dust OPENAP (g),takeoff,climb,cruise,step climb,descent,landing,unknown
+2022_03_01_0205_06A041_QTR46M_A333_A7-AEG,Trent 772,156959.56,154646.9,7179.56,4866.901503481688,1.760665363983743,1.4036231989770822,27.31,912.05,1006.4,0,1405.98,0,43.82
