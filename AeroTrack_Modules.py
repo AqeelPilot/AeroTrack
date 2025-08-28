@@ -487,7 +487,6 @@ class FlightProcess:  ##Backup Class Incase of Failure
     def process_all_files(self, lookup, aircraft_lookup):
         csv_files = [f for f in os.listdir(self.input_folder) if f.endswith(".csv")]
         print(f"Found {len(csv_files)} flight files.")
-s
         for i, file_name in enumerate(csv_files, start=1):
             self.process_file(file_name, i, len(csv_files), lookup, aircraft_lookup)
 
