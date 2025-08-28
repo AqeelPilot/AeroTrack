@@ -1,13 +1,6 @@
 {
-<<<<<<< Updated upstream
-    "input_folder": "C:\\Users\\aqeel\\The University of Manchester\\UOM-RG-FSE-DUST - Aqeel_Shared_Files\\ENPROT_PowerBI\\Flight Data\\Flight_Files",
-    "output_folder": "C:\\Users\\aqeel\\The University of Manchester\\UOM-RG-FSE-DUST - Aqeel_Shared_Files\\ENPROT_PowerBI\\Flight Data\\A333_MassFlowRate",
-    "master_flight_list_folder": "C:\\Users\\aqeel\\The University of Manchester\\UOM-RG-FSE-DUST - Aqeel_Shared_Files\\ENPROT_PowerBI\\Flight Data\\Flight_Lists",
+    "input_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Interns\\Aqeel_Flight_Data_A320\\Aireon_DUST_Aqeel_B77W\\aircraft_type\\B77W",
+    "output_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Data\\AeroTrack\\B77W",
+    "master_flight_list_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Interns\\Aqeel_Flight_Data_A320\\Aireon_DUST_Aqeel_B77W",
     "project_name": "Full_Flight_Data_Analysis"
-=======
-    "input_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Interns\\Aqeel_Flight_Data_A320\\Aireon_DUST_Aqeel_A333\\aircraft_type\\A333",
-    "output_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Data\\AeroTrack\\A333\\",
-    "master_flight_list_folder": "C:\\Users\\n36155dr\\OneDrive - The University of Manchester\\PHD\\Interns\\Aqeel_Flight_Data_A320\\Aireon_DUST_Aqeel_A333",
-    "project_name": "A333_Test"
->>>>>>> Stashed changes
 }

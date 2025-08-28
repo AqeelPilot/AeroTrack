@@ -487,7 +487,7 @@ class FlightProcess:  ##Backup Class Incase of Failure
     def process_all_files(self, lookup, aircraft_lookup):
         csv_files = [f for f in os.listdir(self.input_folder) if f.endswith(".csv")]
         print(f"Found {len(csv_files)} flight files.")
-
+s
         for i, file_name in enumerate(csv_files, start=1):
             self.process_file(file_name, i, len(csv_files), lookup, aircraft_lookup)
 
@@ -498,7 +498,7 @@ class MasterFlightLookup:
         self.master_df = self.load_master_list()
 
     def load_master_list(self):
-        all_csvs = [f for f in os.listdir(self.lookup_folder) if f.endswith(".csv")]
+        all_csvs = [f for f in os.listdir(self.lookup_folder) if f.endswith("MASTER.csv")]
         if not all_csvs:
             raise FileNotFoundError(
                 "No CSV files found in the master flight list folder."
