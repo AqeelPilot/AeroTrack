@@ -908,7 +908,7 @@ class MissionFuelAndWeightEstimator:
 
 
 class AirMassFlowCalculator:
-    def __init__(self, engine_data, afr=30):
+    def __init__(self, engine_data, afr=60):
         self.bpr = engine_data.get("bpr", None)
         self.afr = afr
         if self.bpr is None:
