@@ -1,3 +1,12 @@
+# AeroTrack_Modules
+# Dan's Modifications to V1.0 of AeroTrack developed by Aqeel (DUST-GROUP)
+
+# Task List (Dan)
+# Add Fuel Reserves Module
+# Call from DUST-FLIGHT V3.5.0 and above
+# Change Output Formatting to Fit
+# 
+
 import os
 import pandas as pd
 import numpy as np
@@ -161,7 +170,7 @@ class FlightProcessor:
         }
 
         if aircraft_data:
-            typecode = str(aircraft_data.get("Typecode", "")).upper()
+            typecode = str(aircraft_data.get("typecode", "")).upper()
 
             try:
                 fuel_estimator = FuelEstimator(aircraft_data)
@@ -431,7 +440,7 @@ class FlightProcess:  ##Backup Class Incase of Failure
         # Try to compute drag only if MTOW is available
 
         if aircraft_data:
-            typecode = str(aircraft_data.get("Typecode", "")).upper()
+            typecode = str(aircraft_data.get("typecode", "")).upper()
 
             try:
                 fuel_estimator = FuelEstimator(aircraft_data)
@@ -487,6 +496,7 @@ class FlightProcess:  ##Backup Class Incase of Failure
     def process_all_files(self, lookup, aircraft_lookup):
         csv_files = [f for f in os.listdir(self.input_folder) if f.endswith(".csv")]
         print(f"Found {len(csv_files)} flight files.")
+
         for i, file_name in enumerate(csv_files, start=1):
             self.process_file(file_name, i, len(csv_files), lookup, aircraft_lookup)
 
@@ -521,7 +531,7 @@ class MasterFlightLookup:
         match = self.master_df[self.master_df["Flight_ID"] == flight_id]
 
         if not match.empty:
-            typecode = match.iloc[0]["Typecode"]
+            typecode = match.iloc[0]["typecode"]
             print(f"  Flight '{flight_id}' → Typecode: {typecode}")
         else:
             print(f"  Flight '{flight_id}' not found in master list.")
@@ -547,7 +557,7 @@ class AircraftPropertiesLookup:
 
         try:
             aircraft_data = prop.aircraft(typecode)
-            aircraft_data["Typecode"] = typecode
+            aircraft_data["typecode"] = typecode
             print(f"Aircraft: {filename_no_ext} → Typecode: '{typecode}'")
             return aircraft_data
         except Exception as e:
@@ -898,7 +908,7 @@ class MissionFuelAndWeightEstimator:
 
 
 class AirMassFlowCalculator:
-    def __init__(self, engine_data, afr=60):
+    def __init__(self, engine_data, afr=30):
         self.bpr = engine_data.get("bpr", None)
         self.afr = afr
         if self.bpr is None:
